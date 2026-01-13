@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--cor-secundaria);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+header {
+    text-align: center;
+}
+
+h1 {
+    color: var(--cor-primaria);
+    font-size: 4rem;
+    margin-bottom: 0;
+}
+
+h2 {
+    color: var(--cor-terciaria);
+    font-weight: 300;
+}
+
+::placeholder {
+    font-style: italic;
+    font-size: 1.1rem;
+    padding: 1rem;
+}
+
+li {
+    list-style-type: none;
+    width: 100%;
+}
