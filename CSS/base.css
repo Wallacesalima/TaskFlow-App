@@ -11,7 +11,6 @@ html {
 body {
     background-color: var(--cor-secundaria);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 
 header {
@@ -32,10 +31,15 @@ h2 {
 ::placeholder {
     font-style: italic;
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 1rem 0;
 }
 
 li {
     list-style-type: none;
     width: 100%;
+}
+
+footer {
+    text-align: center;
+    margin: 2rem;
 }
