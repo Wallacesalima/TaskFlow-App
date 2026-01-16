@@ -56,16 +56,19 @@
 .checkbox {
     display: none;
 }
+.checked {
+    background-color: #000;
+}
+
+.label-checkbox .input-checkbox:checked + .span-item {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
 
 .label-checkbox {
     border: solid 2px var(--cor-terciaria);
     padding: 0.6rem;
     border-radius: 0.3rem;
-}
-
-.input-checked {
-    text-decoration: line-through;
-    opacity: 0.6;
 }
 
 #task-list {
