@@ -1,6 +1,16 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     let contador = 0
+
+    const tasks = localStorage.getItem('tasks')
+    const listTasks = JSON.parse(tasks) || []
+
+    listTasks.forEach(task => {
+        createTaskFromStorage(task, contador)
+        contador++
+    })
+
+
     const form = document.getElementById('task-form')
     form.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -31,6 +41,7 @@ function createTask(contador) {
     li.appendChild(label)
     span.textContent = inputAdd
     input.value = ''
+    input.focus()
 
     const checkbox = document.createElement('input')
 
@@ -42,6 +53,7 @@ function createTask(contador) {
     checkbox.type = 'checkbox';
     checkbox.name = 'input-checkbox'
     checkbox.classList.add('input-checkbox')
+
 
     label.appendChild(checkbox)
     label.appendChild(span)
@@ -77,12 +89,60 @@ function saveTasks() {
         const text = li.querySelector('.span-item').textContent
         const completed = li.querySelector('.input-checkbox').checked
 
-        tasks.push({text, completed})
+        tasks.push({ text, completed })
     })
 
     localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
-function loadTasks() {
-    localStorage.getItem('tasks', JSON.parse())
+function createTaskFromStorage(task, contador) {
+    const taskList = document.getElementById('task-list')
+    let index = 'task-' + contador
+    const li = document.createElement('li')
+    li.classList.add('task-item')
+
+    const label = document.createElement('label')
+    label.classList.add('label-checkbox')
+    label.htmlFor = index
+
+    const checkbox = document.createElement('input')
+
+    checkbox.type = 'checkbox'
+    checkbox.id = index
+    checkbox.classList.add('input-checkbox')
+    checkbox.checked = task.completed
+
+    checkbox.addEventListener('change', () => {
+        saveTasks()
+    })
+
+    const span = document.createElement('span')
+    span.classList.add('span-item')
+    span.textContent = task.text
+
+    const button = document.createElement('button')
+    button.type = 'button'
+    button.ariaLabel = 'Deletar'
+
+    const image = document.createElement('img')
+    image.src = "assets/images/trash-2.svg"
+    image.classList.add('image-trash')
+    image.title = 'trash/lixeira/deletar'
+
+    button.appendChild(image)
+
+    button.addEventListener('click', () => {
+        const li = button.parentElement
+        li.remove()
+        saveTasks()
+    })
+
+    label.appendChild(checkbox)
+    label.appendChild(span)
+
+    li.appendChild(label)
+    li.appendChild(button)
+
+    taskList.appendChild(li)
 }
+

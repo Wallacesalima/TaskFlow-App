@@ -56,11 +56,9 @@
 .checkbox {
     display: none;
 }
-.checked {
-    background-color: #000;
-}
 
-.label-checkbox .input-checkbox:checked + .span-item {
+
+li:has(.input-checkbox:checked ) .span-item {
     text-decoration: line-through;
     opacity: 0.6;
 }
