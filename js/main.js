@@ -64,7 +64,7 @@ function createTaskElement(data) {
     const svgTrash = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2"><path d="M10 11v6"/><path d="M14 11v6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M3 6h18"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>'
 
     button.innerHTML = svgTrash
-    
+
     // svg.classList.add('image-trash')
 
     // const image = document.createElement('img')
@@ -98,8 +98,15 @@ function bindCompletionAndDeleteEvents(li) {
 // Substitui o span por um input temporário
 function editTask(li) {
     const span = li.querySelector('.span-item')
+    // Usa 'dblclick' no desktop e 'click' em dispositivos touch
+    // para garantir edição tanto em mouse quanto em mobile
+    const eventType = 'ontouchstart' in window ? 'click' : 'dblclick'
 
-    span.addEventListener('dblclick', () => {
+    span.addEventListener(eventType, () => {
+        startEdit(span, li)
+    })
+
+    function startEdit(span) {
         const textSpan = span.textContent
         const inputEdit = document.createElement('input')
         inputEdit.classList.add('inputEdit')
@@ -110,7 +117,13 @@ function editTask(li) {
 
         // Finaliza edição ao pressionar Enter ou perder o foco
         const finishEdit = () => {
-            if (inputEdit.value === '') return alert('Tarefa Vazia!!!')
+            if (inputEdit.value === '') {
+                inputEdit.classList.add('inputEdit-error')
+                inputEdit.title = 'Digite um texto para salvar a tarefa'
+                inputEdit.focus()
+                return
+            }
+
             span.textContent = inputEdit.value
             inputEdit.replaceWith(span)
             saveTasks()
@@ -121,8 +134,11 @@ function editTask(li) {
         })
 
         inputEdit.addEventListener('blur', finishEdit)
-    })
+    }
+
 }
+
+
 
 // Centraliza o vínculo de todos os comportamentos da tarefa
 function bindTaskEvents(li) {
