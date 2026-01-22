@@ -11,13 +11,14 @@
 </head>
 
 <body>
-    <header class="header effect-glass">
+    <header class="header">
         <h1>TaskFlow</h1>
         <p>Organize suas tarefas de forma simples!</p>
     </header>
     <main class="container effect-glass">
         <form id="task-form" action="" aria-label="Adicionar tarefas">
-            <input id="input-add" class="input-add" name="task" placeholder="Adicione uma nova tarefa..." type="text"
+
+            <input id="input-add" class="input-add" name="task" autocomplete="off" placeholder="Adicione uma nova tarefa..." type="text"
                 required>
             <button class="btn-add" type="submit">
                 Adicionar

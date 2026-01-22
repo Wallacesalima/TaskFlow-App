@@ -34,6 +34,10 @@ h2 {
     padding: 1rem 0;
 }
 
+input:-webkit-autofill {
+    -webkit-text-fill-color: #008080 ; 
+}
+
 li {
     list-style-type: none;
     width: 100%;

@@ -1,3 +1,7 @@
+.header {
+    margin: 3rem 0 2rem 0;
+}
+
 .container {
     justify-items: center;
     justify-self: center;
@@ -29,8 +33,18 @@
 .input-add {
     width: 70%;
     border: solid 2px var(--cor-terciaria);
-    padding: 0.5rem;
+    padding: 0.7rem;
     margin: 0;
+    font-size: 1.2rem;
+    color: var(--cor-terciaria);
+    border-radius: 1rem;
+}
+
+.input-add:focus {
+    background: var(--cor-secundaria);
+    outline: none;
+    border-radius: 0;
+    transition: all 0.5s linear;
 }
 
 .btn-add {
@@ -44,7 +58,6 @@
     cursor: pointer;
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .btn-add:hover {
@@ -53,42 +66,101 @@
     transform: translateY(-1px);
 }
 
-.checkbox {
+.input-checkbox {
     display: none;
+
 }
 
 
-li:has(.input-checkbox:checked ) .span-item {
+li:has(.input-checkbox:checked) .span-item {
     text-decoration: line-through;
     opacity: 0.6;
+}
+
+li:has(.input-checkbox:checked) .label-checkbox {
+    background-color: var(--cor-primaria);
+    border: solid 2px var(--cor-primaria);
 }
 
 .label-checkbox {
     border: solid 2px var(--cor-terciaria);
     padding: 0.6rem;
-    border-radius: 0.3rem;
+    border-radius: 50%;
+}
+
+.image-trash:hover,
+.label-checkbox:hover {
+    cursor: pointer;
 }
 
 #task-list {
     display: flex;
     flex-direction: column;
-     }
+}
 
 .tasks h2 {
     text-align: left;
-     }
+}
 
 .task-item {
+    display: flex;
     background: #fff;
     border: solid 2px var(--cor-terciaria);
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.5rem;
     gap: 0.5rem;
     margin: 1rem 0;
     width: 30rem;
-    justify-items: space-between;
-    color: var(--cor-terciaria);
+    align-items: center;
+    /* color: var(--cor-terciaria); */
     font-size: 1.2rem;
+    width: 100%;
+}
+
+.span-item {
+    width: 100%;
+    color: var(--cor-terciaria);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    position: relative;
+    transition: all 0.5s linear;
+}
+
+s
+
+.span-item:hover, .inputEdit:focus  {
+    cursor: text;
+    background: rgb(210, 210, 210);
+}
+
+
+.inputEdit {
+    width: 100%;
+    color: var(--cor-terciaria);
+    outline: none;
+    border: none;
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    font-size: 1.3rem;
+}
+
+.button-delete {
+    border: none;
+}
+
+svg {
+    stroke: var(--cor-terciaria);
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+}
+
+svg:hover {
+    background-color: rgba(255, 0, 0, 0.9);
+    stroke: var(--cor-secundaria);
 }
 
 .effect-glass {
