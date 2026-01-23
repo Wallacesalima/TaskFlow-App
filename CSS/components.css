@@ -1,5 +1,17 @@
 .header {
     margin: 3rem 0 2rem 0;
+    width: 50%;
+    justify-self: center;
+}
+
+.header h1 {
+    width: 50%;
+    justify-self: center;
+}
+
+.link-landing{
+    width: 50%;
+    background-color: #006666;
 }
 
 .container {
@@ -183,6 +195,10 @@ svg:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .container {
+        margin: 1rem;
+    }
+
     #task-form {
         display: flex;
         flex-direction: column;
