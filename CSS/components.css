@@ -9,7 +9,7 @@
     justify-self: center;
 }
 
-.link-landing{
+.link-landing {
     width: 50%;
     background-color: #006666;
 }
@@ -197,6 +197,14 @@ svg:hover {
 @media screen and (max-width: 768px) {
     .container {
         margin: 1rem;
+    }
+    .header{
+        width: 100%;
+    }
+
+    .header h1 {
+        width: 23rem;
+        justify-self: center;
     }
 
     #task-form {
